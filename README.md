@@ -26,7 +26,7 @@
 </ul>
 
 ## ScreenShots 
-<img src = "assets/home.png" alt="Sample Image">
+<img src = "./assets/home.png" alt="Sample Image">
 
 ## Contact
 
