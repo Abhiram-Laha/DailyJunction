@@ -26,7 +26,10 @@
 </ul>
 
 ## ScreenShots 
-<img src = "./assets/home.gif">
+
+
+https://github.com/Abhiram-Laha/DailyJunction/assets/90309476/e8a961ae-4fa9-4a53-bdd6-8febf95217f4
+
 <img src = "./assets/home.png" alt="Sample Image">
 
 ## Contact
