@@ -1,19 +1,22 @@
-const url = "news.json"; // Replace with the actual path to your JSON file
+const API_KEY = "b80ac9b0015b4851a40a475aa866c807";
+const url = "https://newsapi.org/v2/everything?q=";
 
-window.addEventListener("load", fetchNewsFromJSON);
+//https://newsapi.org/v2/everything?q=india&apiKey=b80ac9b0015b4851a40a475aa866c807
+
+https://newsapi.org/v2/top-headlines&apiKey=b80ac9b0015b4851a40a475aa866c807
+
+window.addEventListener("load", () => fetchNews("India"));
 
 function reload() {
     window.location.reload();
 }
 
-async function fetchNewsFromJSON() {
-    try {
-        const response = await fetch(url);
-        const data = await response.json();
-        bindData(data.articles);
-    } catch (error) {
-        console.error('Error fetching news:', error);
-    }
+
+
+async function fetchNews(query) {
+    const res = await fetch(`${url}${query}&apiKey=${API_KEY}`);
+    const data = await res.json();
+    bindData(data.articles);
 }
 
 function bindData(articles) {
@@ -53,7 +56,7 @@ function fillDataInCard(cardClone, article) {
 
 let curSelectedNav = null;
 function onNavItemClick(id) {
-    fetchNewsFromJSON();
+    fetchNews(id);
     const navItem = document.getElementById(id);
     curSelectedNav?.classList.remove("active");
     curSelectedNav = navItem;
@@ -66,7 +69,7 @@ const searchText = document.getElementById("search-text");
 searchButton.addEventListener("click", () => {
     const query = searchText.value;
     if (!query) return;
-    fetchNewsFromJSON();
+    fetchNews(query);
     curSelectedNav?.classList.remove("active");
     curSelectedNav = null;
 });
